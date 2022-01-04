@@ -1,1 +1,1 @@
-export default (): number => 1;
+export const cost = (): number => 1;
