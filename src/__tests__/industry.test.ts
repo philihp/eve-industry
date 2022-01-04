@@ -1,6 +1,5 @@
 import {
   cost,
-  ModifierParams,
   BlueprintME,
   StructureBonus,
   RigBonus,

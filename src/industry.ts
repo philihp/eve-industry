@@ -39,7 +39,7 @@ export const cost = ({
     .map((i) => runs * i * (1 - blueprint) * (1 - structure) * (1 - rig * sec))
     // then round and keep two decimals
     .map((i) => Math.round(i * 100) / 100)
-    // then ceiling, because we consume whole inputs
+    // then ceiling, because consuming any part consumes the whole
     .map(Math.ceil)
     // but each run takes at least 1
     .map((i) => Math.max(runs, i));
