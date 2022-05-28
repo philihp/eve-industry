@@ -11,8 +11,8 @@
   "author": "Philihp Busby <philihp@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.18.0",
-    "@babel/preset-env": "7.18.0",
+    "@babel/core": "7.18.2",
+    "@babel/preset-env": "7.18.2",
     "@babel/preset-typescript": "7.17.12",
     "@types/jest": "27.5.1",
     "babel-jest": "28.1.0",
