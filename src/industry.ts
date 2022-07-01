@@ -15,7 +15,7 @@ export type RigBonus = 0 | 0.02 | 0.024;
 
 export type StructureBonus = 0 | 0.01;
 
-export type SecBonus = 1 | 2.1;
+export type SecBonus = 1 /* highsec */ | 1.9 /* lowsec */ | 2.1 /* nullsec */;
 
 export interface ModifierParams {
   base?: number[];
