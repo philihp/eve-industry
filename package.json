@@ -1,8 +1,7 @@
 {
-  "name": "evemath",
-  "version": "1.0.0",
+  "name": "eveonline",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",

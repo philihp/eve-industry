@@ -17,6 +17,8 @@ The base requirements of a [720mm Howitzer Artillery II](https://everef.net/type
 However various bonuses affect this, although the timing of multiplier bonuses is important before and after rounding, and only to a certain decimal precision. This function will tell you exactly how many you need:
 
 ```js
+import { cost } from 'eveonline/industry'
+
 cost({
   base: [1, 20, 20, 1, 5],
   runs: 10,
