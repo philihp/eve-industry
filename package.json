@@ -1,9 +1,9 @@
 {
-  "name": "eveonline",
+  "name": "eve-industry",
   "version": "0.0.1",
-  "description": "EVE Online Calculations",
-  "homepage": "https://github.com/philihp/eveonline",
-  "repository": "https://github.com/philihp/eveonline.git",
+  "description": "EVE Online Industry Calculations",
+  "homepage": "https://github.com/philihp/eve-industry",
+  "repository": "https://github.com/philihp/eve-industry.git",
   "files": [
     "/dist/",
     "!/dist/**/__tests__/*.*"

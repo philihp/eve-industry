@@ -4,7 +4,7 @@ import {
   StructureBonus,
   RigBonus,
   SecBonus,
-} from '../industry'
+} from '..'
 
 describe('cost', () => {
   const base = [11, 1, 2, 27]
