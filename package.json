@@ -21,5 +21,10 @@
     "ts-node": "10.7.0",
     "typescript": "4.6.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "es5"
+  }
 }
