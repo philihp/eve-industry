@@ -1,7 +1,18 @@
 {
   "name": "eveonline",
   "version": "0.0.1",
-  "description": "",
+  "description": "EVE Online Calculations",
+  "homepage": "https://github.com/philihp/eveonline",
+  "repository": "https://github.com/philihp/eveonline.git",
+  "files": [
+    "/dist/",
+    "!/dist/**/__tests__/*.*"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "eveonline",
+    "industry"
+  ],
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
