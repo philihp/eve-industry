@@ -15,10 +15,12 @@
     "industry"
   ],
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
     "build": "tsc --build",
-    "build:clean": "tsc --build --clean"
+    "build:clean": "tsc --build --clean",
+    "lint": "eslint src",
+    "prepare": "husky install && npm run build",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "Philihp Busby <philihp@gmail.com>",
   "license": "MIT",
@@ -26,12 +28,14 @@
     "@babel/core": "7.18.6",
     "@babel/preset-env": "7.18.6",
     "@babel/preset-typescript": "7.18.6",
-    "@philihp/eslint-config": "^5.1.4",
+    "@philihp/eslint-config": "5.1.4",
     "@types/jest": "28.1.4",
+    "@typescript-eslint/eslint-plugin": "5.30.5",
+    "@typescript-eslint/parser": "5.30.5",
     "babel-jest": "28.1.2",
-    "husky": "^8.0.1",
+    "husky": "8.0.1",
     "jest": "28.1.2",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "13.0.3",
     "ts-node": "10.8.2",
     "typescript": "4.7.4"
   },
@@ -55,8 +59,16 @@
     "trailingComma": "es5"
   },
   "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
     "extends": [
+      "plugin:@typescript-eslint/recommended",
       "@philihp"
-    ]
+    ],
+    "rules": {
+      "import/no-unresolved": "off"
+    }
   }
 }

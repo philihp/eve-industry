@@ -18,12 +18,12 @@ export type StructureBonus = 0 | 0.01
 export type SecBonus = 1 /* highsec */ | 1.9 /* lowsec */ | 2.1 /* nullsec */
 
 export interface ModifierParams {
-  base?: number[];
-  runs?: number;
-  blueprint?: BlueprintME;
-  structure?: StructureBonus;
-  rig?: RigBonus;
-  sec?: SecBonus;
+  base?: number[]
+  runs?: number
+  blueprint?: BlueprintME
+  structure?: StructureBonus
+  rig?: RigBonus
+  sec?: SecBonus
 }
 
 export const cost = ({
