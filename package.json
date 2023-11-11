@@ -25,9 +25,9 @@
   "author": "Philihp Busby <philihp@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.23.2",
-    "@babel/preset-env": "7.23.2",
-    "@babel/preset-typescript": "7.23.2",
+    "@babel/core": "7.23.3",
+    "@babel/preset-env": "7.23.3",
+    "@babel/preset-typescript": "7.23.3",
     "@philihp/eslint-config": "6.1.0",
     "@types/jest": "29.5.7",
     "@typescript-eslint/eslint-plugin": "6.9.1",
