@@ -29,7 +29,7 @@
     "@babel/preset-env": "7.26.0",
     "@babel/preset-typescript": "7.26.0",
     "@philihp/eslint-config": "6.1.0",
-    "@tsconfig/recommended": "1.0.7",
+    "@tsconfig/recommended": "1.0.8",
     "@types/jest": "29.5.14",
     "@typescript-eslint/eslint-plugin": "8.11.0",
     "@typescript-eslint/parser": "8.11.0",
