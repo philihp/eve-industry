@@ -1,7 +1,12 @@
 import { describe, test } from 'node:test'
 import assert from 'node:assert/strict'
 import { cost } from '../index.ts'
-import type { BlueprintME, StructureBonus, RigBonus, SecBonus } from '../index.ts'
+import type {
+  BlueprintME,
+  StructureBonus,
+  RigBonus,
+  SecBonus,
+} from '../index.ts'
 
 describe('cost', () => {
   const base = [11, 1, 2, 27]

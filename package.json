@@ -25,7 +25,9 @@
   "scripts": {
     "build": "tsc --build",
     "build:clean": "tsc --build --clean",
+    "format": "prettier --write .",
     "lint": "eslint src",
+    "prepare": "husky",
     "test": "node --test --test-reporter=spec 'src/**/*.test.ts'",
     "test:watch": "node --test --watch --test-reporter=spec 'src/**/*.test.ts'"
   },
@@ -33,7 +35,23 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "9.16.0",
+    "eslint-config-prettier": "9.1.0",
+    "husky": "9.1.7",
+    "lint-staged": "17.0.4",
+    "prettier": "3.4.2",
     "typescript": "5.9.3",
     "typescript-eslint": "8.59.2"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": "prettier --write"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "trailingComma": "es5"
   }
 }
