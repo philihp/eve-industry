@@ -1,6 +1,12 @@
 {
-  "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
+    "lib": ["es2024"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
@@ -9,10 +15,6 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/**/__tests__/*"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["src/**/__tests__/*"]
 }
