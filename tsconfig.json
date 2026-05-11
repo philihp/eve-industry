@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
     "lib": ["es2024"],
+    "target": "es2022",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "target": "es2022",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./dist/esm",
     "rootDir": "./src",
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true
