@@ -4,7 +4,15 @@
   "description": "EVE Online Industry Calculations",
   "homepage": "https://github.com/philihp/eve-industry",
   "repository": "https://github.com/philihp/eve-industry.git",
+  "type": "module",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "files": [
     "/dist/",
     "!/dist/**/__tests__/*.*"
@@ -18,39 +26,24 @@
     "build": "tsc --build",
     "build:clean": "tsc --build --clean",
     "lint": "eslint src",
-    "prepare": "husky install && npm run build",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "prepare": "husky && npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "author": "Philihp Busby <philihp@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.29.0",
-    "@babel/preset-env": "7.29.5",
-    "@babel/preset-typescript": "7.28.5",
     "@philihp/eslint-config": "6.1.0",
-    "@tsconfig/recommended": "1.0.13",
-    "@types/jest": "29.5.14",
+    "@tsconfig/node22": "22.0.2",
     "@typescript-eslint/eslint-plugin": "8.59.2",
     "@typescript-eslint/parser": "8.59.2",
-    "babel-jest": "29.7.0",
     "husky": "9.1.7",
-    "jest": "29.7.0",
     "lint-staged": "17.0.4",
-    "ts-node": "10.9.2",
-    "typescript": "5.9.3"
-  },
-  "jest": {
-    "clearMocks": true,
-    "modulePathIgnorePatterns": [
-      "dist/"
-    ],
-    "roots": [
-      "src"
-    ]
+    "typescript": "5.9.3",
+    "vitest": "2.1.9"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json}": [
+    "src/**/*.{ts,tsx,js,jsx,json}": [
       "eslint --fix"
     ]
   },

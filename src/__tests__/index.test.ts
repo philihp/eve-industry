@@ -1,4 +1,5 @@
-import { cost, BlueprintME, StructureBonus, RigBonus, SecBonus } from '..'
+import { describe, expect, test } from 'vitest'
+import { cost, BlueprintME, StructureBonus, RigBonus, SecBonus } from '../index.js'
 
 describe('cost', () => {
   const base = [11, 1, 2, 27]
