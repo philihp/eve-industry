@@ -1,5 +1,7 @@
-import { describe, expect, test } from 'vitest'
-import { cost, BlueprintME, StructureBonus, RigBonus, SecBonus } from '../index.js'
+import { describe, test } from 'node:test'
+import assert from 'node:assert/strict'
+import { cost } from '../index.ts'
+import type { BlueprintME, StructureBonus, RigBonus, SecBonus } from '../index.ts'
 
 describe('cost', () => {
   const base = [11, 1, 2, 27]
@@ -11,14 +13,14 @@ describe('cost', () => {
         const structure: StructureBonus = 0.0
         test('returns expected', () => {
           const options = { base, runs, blueprint, structure }
-          expect(cost(options)).toStrictEqual([11, 1, 2, 27])
+          assert.deepEqual(cost(options), [11, 1, 2, 27])
         })
       })
       describe('raitaru', () => {
         const structure: StructureBonus = 0.01
         test('returns expected', () => {
           const options = { base, runs, blueprint, structure }
-          expect(cost(options)).toStrictEqual([11, 1, 2, 27])
+          assert.deepEqual(cost(options), [11, 1, 2, 27])
         })
 
         describe('T1 rig', () => {
@@ -26,7 +28,7 @@ describe('cost', () => {
           const sec: SecBonus = 2.1
           test('returns expected', () => {
             const options = { base, runs, blueprint, structure, rig, sec }
-            expect(cost(options)).toStrictEqual([11, 1, 2, 26])
+            assert.deepEqual(cost(options), [11, 1, 2, 26])
           })
         })
         describe('T2 rig', () => {
@@ -34,7 +36,7 @@ describe('cost', () => {
           const sec: SecBonus = 2.1
           test('returns expected', () => {
             const options = { base, runs, blueprint, structure, rig, sec }
-            expect(cost(options)).toStrictEqual([11, 1, 2, 26])
+            assert.deepEqual(cost(options), [11, 1, 2, 26])
           })
         })
       })
@@ -45,14 +47,14 @@ describe('cost', () => {
         const structure: StructureBonus = 0.0
         test('returns expected', () => {
           const options = { base, runs, blueprint, structure }
-          expect(cost(options)).toStrictEqual([10, 1, 2, 25])
+          assert.deepEqual(cost(options), [10, 1, 2, 25])
         })
       })
       describe('raitaru', () => {
         const structure: StructureBonus = 0.01
         test('returns expected', () => {
           const options = { base, runs, blueprint, structure }
-          expect(cost(options)).toStrictEqual([10, 1, 2, 25])
+          assert.deepEqual(cost(options), [10, 1, 2, 25])
         })
 
         describe('T1 rig', () => {
@@ -60,7 +62,7 @@ describe('cost', () => {
           const sec: SecBonus = 2.1
           test('returns expected', () => {
             const options = { base, runs, blueprint, structure, rig, sec }
-            expect(cost(options)).toStrictEqual([10, 1, 2, 24])
+            assert.deepEqual(cost(options), [10, 1, 2, 24])
           })
         })
         describe('T2 rig', () => {
@@ -68,7 +70,7 @@ describe('cost', () => {
           const sec: SecBonus = 2.1
           test('returns expected', () => {
             const options = { base, runs, blueprint, structure, rig, sec }
-            expect(cost(options)).toStrictEqual([10, 1, 2, 23])
+            assert.deepEqual(cost(options), [10, 1, 2, 23])
           })
         })
       })
@@ -82,14 +84,14 @@ describe('cost', () => {
         const structure: StructureBonus = 0.0
         test('returns expected', () => {
           const options = { base, runs, blueprint, structure }
-          expect(cost(options)).toStrictEqual([11000, 1000, 2000, 27000])
+          assert.deepEqual(cost(options), [11000, 1000, 2000, 27000])
         })
       })
       describe('raitaru', () => {
         const structure: StructureBonus = 0.01
         test('returns expected', () => {
           const options = { base, runs, blueprint, structure }
-          expect(cost(options)).toStrictEqual([10890, 1000, 1980, 26730])
+          assert.deepEqual(cost(options), [10890, 1000, 1980, 26730])
         })
 
         describe('T1 rig', () => {
@@ -97,7 +99,7 @@ describe('cost', () => {
           const sec: SecBonus = 2.1
           test('returns expected', () => {
             const options = { base, runs, blueprint, structure, rig, sec }
-            expect(cost(options)).toStrictEqual([10433, 1000, 1897, 25608])
+            assert.deepEqual(cost(options), [10433, 1000, 1897, 25608])
           })
         })
         describe('T2 rig', () => {
@@ -105,7 +107,7 @@ describe('cost', () => {
           const sec: SecBonus = 2.1
           test('returns expected', () => {
             const options = { base, runs, blueprint, structure, rig, sec }
-            expect(cost(options)).toStrictEqual([10342, 1000, 1881, 25383])
+            assert.deepEqual(cost(options), [10342, 1000, 1881, 25383])
           })
         })
       })
@@ -116,14 +118,14 @@ describe('cost', () => {
         const structure: StructureBonus = 0.0
         test('returns expected', () => {
           const options = { base, runs, blueprint, structure }
-          expect(cost(options)).toStrictEqual([9900, 1000, 1800, 24300])
+          assert.deepEqual(cost(options), [9900, 1000, 1800, 24300])
         })
       })
       describe('raitaru', () => {
         const structure: StructureBonus = 0.01
         test('returns expected', () => {
           const options = { base, runs, blueprint, structure }
-          expect(cost(options)).toStrictEqual([9801, 1000, 1782, 24057])
+          assert.deepEqual(cost(options), [9801, 1000, 1782, 24057])
         })
 
         describe('T1 rig', () => {
@@ -131,7 +133,7 @@ describe('cost', () => {
           const sec: SecBonus = 2.1
           test('returns expected', () => {
             const options = { base, runs, blueprint, structure, rig, sec }
-            expect(cost(options)).toStrictEqual([9390, 1000, 1708, 23047])
+            assert.deepEqual(cost(options), [9390, 1000, 1708, 23047])
           })
         })
         describe('T2 rig', () => {
@@ -139,7 +141,7 @@ describe('cost', () => {
           const sec: SecBonus = 2.1
           test('returns expected', () => {
             const options = { base, runs, blueprint, structure, rig, sec }
-            expect(cost(options)).toStrictEqual([9308, 1000, 1693, 22845])
+            assert.deepEqual(cost(options), [9308, 1000, 1693, 22845])
           })
         })
       })
