@@ -37,7 +37,7 @@
   "author": "Philihp Busby <philihp@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "9.16.0",
+    "eslint": "9.39.4",
     "eslint-config-prettier": "9.1.2",
     "husky": "9.1.7",
     "lint-staged": "17.0.4",
