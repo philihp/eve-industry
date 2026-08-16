@@ -29,7 +29,7 @@
     "build:cjs": "tsc -p tsconfig.cjs.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', '{\\\"type\\\":\\\"commonjs\\\"}\\n')\"",
     "build:clean": "rm -rf dist",
     "format": "prettier --write .",
-    "lint": "eslint src",
+    "lint": "oxlint src",
     "prepare": "husky",
     "test": "node --test --test-reporter=spec 'src/**/*.test.ts'",
     "test:watch": "node --test --watch --test-reporter=spec 'src/**/*.test.ts'"
@@ -37,17 +37,15 @@
   "author": "Philihp Busby <philihp@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "9.39.5",
-    "eslint-config-prettier": "10.1.8",
     "husky": "9.1.7",
     "lint-staged": "17.3.0",
+    "oxlint": "1.78.0",
     "prettier": "3.9.6",
-    "typescript": "5.9.3",
-    "typescript-eslint": "8.67.0"
+    "typescript": "7.0.2"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,js,jsx}": [
-      "eslint --fix",
+      "oxlint --fix",
       "prettier --write"
     ],
     "*.{json,md,yml,yaml}": "prettier --write"
