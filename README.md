@@ -52,12 +52,17 @@ import { researchLevels } from 'eve-industry'
 
 6300 * researchLevels(5, 10)
 // => 15158400 (175d 10h 40m)
+
+researchLevels(0, 11)
+// => undefined
 ```
 
 | Name   | Description                                                                       |
 | :----- | :-------------------------------------------------------------------------------- |
 | `from` | The level of the blueprint now, `0` to `10`. For TE, use the TE ÷ 2.              |
 | `to`   | The level of the blueprint after the job, `from` to `10`. For TE, use the TE ÷ 2. |
+
+If `from` or `to` is not a whole number from `0` to `10`, the result is `undefined`. This includes `undefined`, `-1`, `11`, `2.5` and `NaN`.
 
 The time from level 0 to each level comes from a table that CCP set by hand. No formula gives these values. A job from level `a` to level `b` takes the time to level `b` minus the time to level `a`.
 

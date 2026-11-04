@@ -34,8 +34,6 @@ export const cost = ({
     // but each run takes at least 1
     .map((i) => Math.max(runs, i))
 
-export type ResearchLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
-
 // Research time from level 0 to each level, where level 1 is 105. CCP set
 // these values by hand, so no formula gives them: the even levels repeat the
 // skill point table on purpose.
@@ -44,9 +42,21 @@ const RESEARCH_LEVELS = [
   0, 105, 250, 595, 1414, 3360, 8000, 19000, 45255, 107700, 256000,
 ] as const
 
+// The time from level 0 to `level`, or undefined when the table has no such
+// level (undefined, negative, above 10, or not a whole number).
+const timeToLevel = (level: number | undefined): number | undefined =>
+  level === undefined ? undefined : RESEARCH_LEVELS[level]
+
 // The factor on a blueprint's base research time (the SDE time for level 0
-// to level 1) for one job from level `from` to level `to`.
+// to level 1) for one job from level `from` to level `to`, or undefined when
+// either level is not a whole number from 0 to 10.
 export const researchLevels = (
-  from: ResearchLevel,
-  to: ResearchLevel
-): number => (RESEARCH_LEVELS[to] - RESEARCH_LEVELS[from]) / 105
+  from: number | undefined,
+  to: number | undefined
+): number | undefined => {
+  const start = timeToLevel(from)
+  const end = timeToLevel(to)
+  return start === undefined || end === undefined
+    ? undefined
+    : (end - start) / 105
+}
