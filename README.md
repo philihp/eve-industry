@@ -38,3 +38,33 @@ cost({
 | `structure` |     `0` | The structure bonus, `0` or `0.01`.                                                                                                                                                                               |
 | `rig`       |     `0` | `0` for no rig, `0.02` for a T1 rig, and `0.024` for a T2 rig. You can confirm this by using a ship scanner on the structure                                                                                      |
 | `sec`       |     `1` | `1` for highsec, `1.9` for lowsec, `2.1` for nullsec and wormhole space                                                                                                                                           |
+
+### Research
+
+`researchLevels(from, to)` gives the factor on the base research time of a blueprint for one ME or TE research job. The base research time is the time from level 0 to level 1, from the `research_material` or `research_time` activity in the SDE.
+
+```js
+import { researchLevels } from 'eve-industry'
+
+// Research Laboratory Blueprint: base research time 6300 seconds
+6300 * researchLevels(0, 5)
+// => 201600 (2d 8h)
+
+6300 * researchLevels(5, 10)
+// => 15158400 (175d 10h 40m)
+```
+
+| Name   | Description                                                                       |
+| :----- | :-------------------------------------------------------------------------------- |
+| `from` | The level of the blueprint now, `0` to `10`. For TE, use the TE ÷ 2.              |
+| `to`   | The level of the blueprint after the job, `from` to `10`. For TE, use the TE ÷ 2. |
+
+The time from level 0 to each level comes from a table that CCP set by hand. No formula gives these values. A job from level `a` to level `b` takes the time to level `b` minus the time to level `a`.
+
+| Level                              |   1 |   2 |   3 |    4 |    5 |    6 |     7 |     8 |      9 |     10 |
+| :--------------------------------- | --: | --: | --: | ---: | ---: | ---: | ----: | ----: | -----: | -----: |
+| Time from level 0 (level 1 is 105) | 105 | 250 | 595 | 1414 | 3360 | 8000 | 19000 | 45255 | 107700 | 256000 |
+
+Sources: [the CCP dev blog of 2014-07-17](https://www.eveonline.com/news/view/eve-industry-all-you-want-to-know), [Qoi's Formulas for EVE Industry](https://eve-industry.org/export/IndustryFormulas.pdf), [the EVE Online forums](https://forums.eveonline.com/t/blueprints-me-te-research-time/68318), and [EVE Ref](https://everef.net/types/2821).
+
+The factor does not include skills, implants, structures or rigs. Multiply those in separately.
