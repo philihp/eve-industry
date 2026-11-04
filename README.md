@@ -85,3 +85,24 @@ The time from level 0 to each level comes from a table that CCP set by hand. No 
 Sources: [the CCP dev blog of 2014-07-17](https://www.eveonline.com/news/view/eve-industry-all-you-want-to-know), [Qoi's Formulas for EVE Industry](https://eve-industry.org/export/IndustryFormulas.pdf), [the EVE Online forums](https://forums.eveonline.com/t/blueprints-me-te-research-time/68318), and [EVE Ref](https://everef.net/types/2821).
 
 The factor does not include skills, implants, structures or rigs. Multiply those in separately.
+
+### Releases
+
+The package is published to npm by the `release` workflow, with a [provenance attestation](https://docs.npmjs.com/generating-provenance-statements) that links the package to the commit and the workflow run that built it. The workflow holds no npm token: npm trusts it through GitHub's OIDC token ([trusted publishing](https://docs.npmjs.com/trusted-publishers)). `publishConfig.provenance` in `package.json` makes `npm publish` refuse to publish without an attestation, so a publish from a laptop fails.
+
+To release a version:
+
+1. Set the version in `package.json` on `main`.
+2. Publish a GitHub release whose tag is `v` and that version, for example `v0.2.0`. The workflow refuses a tag that does not match.
+3. The workflow installs, lints, tests, builds and publishes. The npm page of the version then shows a Provenance panel.
+
+Before the first release, set up the trusted publisher once on npmjs.com, under the package's settings:
+
+- Organization or user: `philihp`
+- Repository: `eve-industry`
+- Workflow filename: `release.yml`
+- Allowed actions: `npm publish`
+
+The configuration expires if no publish succeeds within two days of saving it.
+
+To check a downloaded copy, run `npm audit signatures` in a project that depends on it.

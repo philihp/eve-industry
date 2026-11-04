@@ -1,0 +1,37 @@
+name: release
+
+# Publishes to npm when a GitHub release is published. The tag must equal
+# "v" + the version in package.json.
+#
+# No npm token: npm trusts this workflow through GitHub's OIDC token (npm
+# "trusted publishing"), and attaches a provenance attestation to the
+# package on its own. Trusted publishing needs npm 11.5.1 or later, so the
+# job runs on Node 24, which bundles npm 11.
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.x
+          registry-url: https://registry.npmjs.org
+      - name: Check that npm can publish with trusted publishing
+        run: |
+          npm --version
+          node -e "const [a, b, c] = process.versions.npm.split('.').map(Number); if (a < 11 || (a === 11 && (b < 5 || (b === 5 && c < 1)))) { console.error('npm 11.5.1 or later is required'); process.exit(1) }"
+      - name: Check that the tag matches package.json
+        run: test "$GITHUB_REF_NAME" = "v$(node -p 'require("./package.json").version')"
+      - run: npm install
+      - run: npm run lint
+      - run: npm test
+      - run: npm publish
