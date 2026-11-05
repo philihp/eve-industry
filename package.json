@@ -19,6 +19,10 @@
     "!/dist/**/__tests__/*.*"
   ],
   "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "keywords": [
     "eveonline",
     "industry"
@@ -32,7 +36,8 @@
     "lint": "oxlint src",
     "prepare": "husky",
     "test": "node --test --test-reporter=spec 'src/**/*.test.ts'",
-    "test:watch": "node --test --watch --test-reporter=spec 'src/**/*.test.ts'"
+    "test:watch": "node --test --watch --test-reporter=spec 'src/**/*.test.ts'",
+    "prepublishOnly": "npm run build:clean && npm run build"
   },
   "author": "Philihp Busby <philihp@gmail.com>",
   "license": "MIT",
