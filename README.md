@@ -144,7 +144,7 @@ If you need a formula, open an issue that gives a source for its numbers.
 
 ## Release procedure
 
-The `release` workflow publishes the package to npm when you publish a GitHub release. The workflow has no npm token. npm trusts the workflow through the OIDC token of GitHub ([trusted publishing](https://docs.npmjs.com/trusted-publishers)), and npm attaches the provenance attestation. `publishConfig.provenance` in `package.json` makes `npm publish` refuse a publish without an attestation. So a publish from a laptop fails.
+When you publish a GitHub release, the `release` workflow publishes the package to npm. The workflow has no npm token. npm trusts the workflow through the OIDC token of GitHub ([trusted publishing](https://docs.npmjs.com/trusted-publishers)), and npm attaches the provenance attestation. `publishConfig.provenance` in `package.json` makes `npm publish` refuse a publish without an attestation. So a publish from a laptop fails.
 
 1. Set the version in `package.json` on `main`.
 2. Publish a GitHub release with the tag `v` + the version, for example `v0.2.0`.
