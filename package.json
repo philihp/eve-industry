@@ -43,7 +43,7 @@
   "license": "MIT",
   "devDependencies": {
     "husky": "9.1.7",
-    "lint-staged": "17.6.2",
+    "lint-staged": "17.6.3",
     "oxlint": "1.95.0",
     "prettier": "3.10.1",
     "typescript": "7.0.2"
